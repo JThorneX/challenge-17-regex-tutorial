@@ -34,10 +34,12 @@ There are two anchors in this regex expression: <mark style="background-color: #
 
 ### Quantifiers
 
-There are three quantifiers in this regex expression: <mark style="background-color: #E6E6FA">\*</mark>, <mark style="background-color: #E6E6FA">?</mark>, and <mark style="background-color: #E6E6FA">{ }</mark>. In this particular expression, the <mark style="background-color: #E6E6FA">?</mark> after the <mark style="background-color: #E6E6FA">#</mark> indicates a boolean value of 0 or 1 that tells the expression to match a string whether it begins with a <mark style="background-color: #E6E6FA">#</mark> or not. <br>
+There are two quantifiers in this regex expression: <mark style="background-color: #E6E6FA">?</mark> and <mark style="background-color: #E6E6FA">{ }</mark>. In this particular expression, the <mark style="background-color: #E6E6FA">?</mark> after the <mark style="background-color: #E6E6FA">#</mark> indicates a boolean value of 0 or 1 that tells the expression to match a string whether it begins with a <mark style="background-color: #E6E6FA">#</mark> or not. <br>
 The other quantifier, <mark style="background-color: #E6E6FA">{ }</mark>, wrapped around an integer simply indicate how many character values to look for.
 
 ### Grouping Constructs
+
+The grouping construct is indicated by the <mark style="background-color: #E6E6FA">( )</mark> - these simply group exressions inside of them. In the hex value, the <mark style="background-color: #E6E6FA">( )</mark> enclose the entirety of the expression, treating it as a single pattern - the quantifiers (in the case of hex, <mark style="background-color: #E6E6FA">?</mark>) is applied to entire grouping.
 
 ### Bracket Expressions
 
