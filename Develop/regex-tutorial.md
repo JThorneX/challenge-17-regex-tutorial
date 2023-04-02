@@ -23,31 +23,32 @@ The expression I will focus on is the hex value expression, as I have a particul
 
 ## Regex Components
 
-The standard hex value regex is as follows: <mark style="background-color: #E6E6FA">/^#?([a-f0-9]{6}|[a-f0-9]{3})$/</mark>.  
+The standard hex value regex is as follows: `/^#?([a-f0-9]{6}|[a-f0-9]{3})$/`.  
 <br>
 This looks intimidating at first glance, but it's very simple when you break it up.<br>
-<br> The first part is <mark style="background-color: #E6E6FA">[a-f0-9]{6}</mark> - this part is searching for a hex value with letters a-f (or A-F if using flag) and numbers between 0-9 within 6 character spaces. For example, #E6E6FA - the hex value of the highlighted text.<br> The second part is <mark style="background-color: #E6E6FA">[a-f0-9]{3}</mark> - an expression that is doing the same as the first part but looking for only 3 character spaces this time. Some colors can have 3 hex character spaces if both the values are the same for each component - such as #BB5588 can be #B58.
+<br> The first part is `[a-f0-9]{6}` - this part is searching for a hex value with letters a-f (or A-F if using flag) and numbers between 0-9 within 6 character spaces. For example, #E6E6FA.
+<br> The second part is `[a-f0-9]{3}` - an expression that is doing the same as the first part but looking for only 3 character spaces this time. Some colors can have 3 hex character spaces if both the values are the same for each component - such as #BB5588 can be #B58.
 
 ## Anchors
 
-There are two anchors in this regex expression: <mark style="background-color: #E6E6FA">^</mark> and <mark style="background-color: #E6E6FA">$</mark>. The former represents the start of the string, the latter represents the end of the string. Everything in between the two symbols is what the regex looks for.
+There are two anchors in this regex expression: `^` and `$`. The former represents the start of the string, the latter represents the end of the string. Everything in between the two symbols is what the regex looks for.
 
 ## Quantifiers
 
-There are two quantifiers in this regex expression: <mark style="background-color: #E6E6FA">?</mark> and <mark style="background-color: #E6E6FA">{ }</mark>. In this particular expression, the <mark style="background-color: #E6E6FA">?</mark> after the <mark style="background-color: #E6E6FA">#</mark> indicates a boolean value of 0 or 1 that tells the expression to match a string whether it begins with a <mark style="background-color: #E6E6FA">#</mark> or not. <br>
-The other quantifier, <mark style="background-color: #E6E6FA">{ }</mark>, wrapped around an integer simply indicate how many character values to look for.
+There are two quantifiers in this regex expression: `?` and `{ }`. In this particular expression, the `?` after the `#` indicates a boolean value of 0 or 1 that tells the expression to match a string whether it begins with a `#` or not. <br>
+The other quantifier, `{ }`, wrapped around an integer simply indicate how many character values to look for.
 
 ## Grouping Constructs
 
-The grouping construct is indicated by the <mark style="background-color: #E6E6FA">( )</mark> - these simply group exressions inside of them. In the hex value, the <mark style="background-color: #E6E6FA">( )</mark> enclose the entirety of the expression, treating it as a single pattern - the quantifiers (in the case of hex, <mark style="background-color: #E6E6FA">?</mark>) is applied to entire grouping.
+The grouping construct is indicated by the `( )` - these simply group exressions inside of them. In the hex value, the `( )` enclose the entirety of the expression, treating it as a single pattern - the quantifiers (in the case of hex, `?`) is applied to entire grouping.
 
 ## Bracket Expressions
 
-The bracket expressions contain everything within the <mark style="background-color: #E6E6FA">[ ]</mark> which will be matched with the regex. In the case of the hex value regex, the brackets enclose the characters of letters and numbers.
+The bracket expressions contain everything within the `[ ]` which will be matched with the regex. In the case of the hex value regex, the brackets enclose the characters of letters and numbers.
 
 ## Character Classes
 
-Character classes, or character sets, match a given character defined in a set of characters. In our hex value expression, the <mark style="background-color: #E6E6FA">-</mark> indicates the range between the two characters, such as <mark style="background-color: #E6E6FA">a-z</mark> or <mark style="background-color: #E6E6FA">0-9</mark>. In either example, only one character from this range can be selected. These operations can be quite useful and time-saving. For example, instead of typing <mark style="background-color: #E6E6FA">[abcdefghijklmnopq]</mark>, <mark style="background-color: #E6E6FA">[a-q]</mark> does the same with much less typing and more readability.
+Character classes, or character sets, match a given character defined in a set of characters. In our hex value expression, the `-` indicates the range between the two characters, such as `a-z` or `0-9`. In either example, only one character from this range can be selected. These operations can be quite useful and time-saving. For example, instead of typing `[abcdefghijklmnopq]`, `[a-q]` does the same with much less typing and more readability.
 
 ## The OR Operator
 
@@ -55,11 +56,11 @@ As with many other operations, the OR operator is the | between the two componen
 
 ## Flags
 
-Flags are option parameters for regex expressions - there are 6 total flags: i, g, s, m, y, and u. The i flag ignores casing, an ideal flag to use with the hex value expression so that it can read both #E6E6FA and #e6e6fa. The g flag stands for glboal and makes the expression search for all occurences, another good one to use with hex. The s is dot all, which makes the character <mark style="background-color: #E6E6FA">.</mark> match newlines as well. The m is multiline which makes the anchors, <mark style="background-color: #E6E6FA">^</mark> and <mark style="background-color: #E6E6FA">$</mark>, as covered above, match the beginning of every single line instead of the beginning and ending of the whole string. The y means sticky, which "makes the expression start its searching from the index indicated in its lastIndex property". And finally, the u which stands for unicode, simply "makes the expression assume individual characters as code points, not code units, and this match 32-bit characters as well".
+Flags are option parameters for regex expressions - there are 6 total flags: i, g, s, m, y, and u. The i flag ignores casing, an ideal flag to use with the hex value expression so that it can read both #E6E6FA and #e6e6fa. The g flag stands for glboal and makes the expression search for all occurences, another good one to use with hex. The s is dot all, which makes the character `.` match newlines as well. The m is multiline which makes the anchors, `^` and `$`, as covered above, match the beginning of every single line instead of the beginning and ending of the whole string. The y means sticky, which "makes the expression start its searching from the index indicated in its lastIndex property". And finally, the u which stands for unicode, simply "makes the expression assume individual characters as code points, not code units, and this match 32-bit characters as well".
 
 ## Character Escapes
 
-Finally, character escapes are denoted by the <mark style="background-color: #E6E6FA"> \ </mark> symbol. If a character has a special meaning in regex, the <mark style="background-color: #E6E6FA">/</mark> needs to be used to escape the character first. There is no need to escape anything in a typical hex value expression, but a good example would be if an expression needed to look for a <mark style="background-color: #E6E6FA">.</mark> or <mark style="background-color: #E6E6FA">+</mark>, as these two symbols are used quite a bit in building regex expressions. In order to search for one of these symbols, it would be written <mark style="background-color: #E6E6FA">\.</mark> which would look for "." or <mark style="background-color: #E6E6FA">\+</mark> which would look for "+".
+Finally, character escapes are denoted by the `\` symbol. If a character has a special meaning in regex, the `\` needs to be used to escape the character first. There is no need to escape anything in a typical hex value expression, but a good example would be if an expression needed to look for a `.` or `+`, as these two symbols are used quite a bit in building regex expressions. In order to search for one of these symbols, it would be written `\.` which would look for "." or `\+` which would look for "+".
 
 ## Author
 
