@@ -30,9 +30,11 @@ This looks intimidating at first glance, but it's very simple when you break it 
 
 ### Anchors
 
-
+There are two anchors in this regex expression: <mark style="background-color: #E6E6FA">^</mark> and <mark style="background-color: #E6E6FA">$</mark>. The former represents the start of the string, the latter represents the end of the string. Everything in between the two symbols is what the regex looks for.
 
 ### Quantifiers
+
+
 
 ### Grouping Constructs
 
