@@ -59,6 +59,8 @@ Flags are option parameters for regex expressions - there are 6 total flags: i, 
 
 ## Character Escapes
 
+Finally, character escapes are denoted by the <mark style="background-color: #E6E6FA">\</mark> symbol. If a character has a special meaning in regex, the <mark style="background-color: #E6E6FA">/</mark> needs to be used to escape the character first. There is no need to escape anything in a typical hex value expression, but a good example would be if an expression needed to look for a <mark style="background-color: #E6E6FA">.</mark> or <mark style="background-color: #E6E6FA">+</mark>, as these two symbols are used quite a bit in building regex expressions. In order to search for one of these symbols, it would be written <mark style="background-color: #E6E6FA">\.</mark> which would look for "." or <mark style="background-color: #E6E6FA">\+</mark> which would look for "+".
+
 ## Author
 
 A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
